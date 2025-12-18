@@ -1,0 +1,36 @@
+import connectDB from "./db.config.js";
+import {
+    PORT, MONGO_URI, SESSION_SECRECT, 
+    JWT_ACC_EXPIRES_IN, JWT_ACC_SECRECT, JWT_REF_EXPIRES_IN, JWT_REF_SECRECT,
+    GOOGLE_CALLBACK_URI, GOOGLE_CLIENT_ID,  GOOGLE_CLIENT_SECRET,
+    DISCORD_CALLBACK_URI, DISCORD_CLIENT_ID,  DISCORD_CLIENT_SECRET,
+    EMAIL_FROM,
+    OTP_EXPIRES_MINUTES,
+} from "./env.config.js";
+
+import sessionConfig from "./session.config.js";
+import { morgan} from "./morgan.config.js"; 
+import PERMISSIONS from "./permissions.config";
+
+
+export {
+    connectDB,
+    PORT,
+    MONGO_URI,
+    SESSION_SECRECT,
+    JWT_ACC_EXPIRES_IN,
+    JWT_ACC_SECRECT,
+    JWT_REF_EXPIRES_IN,
+    JWT_REF_SECRECT,
+    GOOGLE_CALLBACK_URI,
+    GOOGLE_CLIENT_ID,
+    GOOGLE_CLIENT_SECRET,
+    DISCORD_CALLBACK_URI,
+    DISCORD_CLIENT_ID,
+    DISCORD_CLIENT_SECRET,
+    EMAIL_FROM,
+    OTP_EXPIRES_MINUTES,
+    sessionConfig,
+    morgan,
+    PERMISSIONS
+};
