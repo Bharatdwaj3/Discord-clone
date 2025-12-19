@@ -1,74 +1,50 @@
 const PERMISSIONS = {
-    admin: [
-        // User management
-        'manage_users',
-        'view_users',
-        'delete_user',
-        'view_sellers',
-        // Product management
-        'create_product',
-        'view_products',
-        'update_product',
-        'delete_product',
-        'delete_seller',
+  admin: [
+    // users / profiles
+    'list_users',
+    'view_profile',
+    'edit_profile',
+    'remove_user',
 
-        // Order management
-        'view_orders',
-        'update_order_status',
-        'delete_order',
-        'update_seller',
+    // content
+    'list_content',
+    'view_content',
+    'publish_content',
+    'edit_content',
+    'remove_content',
 
-        // Payment management
-        'view_payments',
+    // categories
+    'list_categories',
+    'add_category',
+    'edit_category',
+    'remove_category'
+  ],
 
-        //Customer Management
-        'view_customers',
-        'view_customer',
-        'delete_customer',
+  creator: [
+    // content (ownership enforced in logic)
+    'list_content',
+    'view_content',
+    'publish_content',
+    'edit_content',
+    'remove_content',
 
-        // Self
-        'view_self',
-        'update_self',
-        'view-self'
-    ],
+    // self
+    'view_profile',
+    'edit_profile',
 
-    seller: [
-        // Product management (only their own)
-        'create_product',
-        'view_products',
-        'update_product',
-        'delete_product',
+    'deactivate_account'
+  ],
 
-        // Orders related to their products
-        'view_orders',
-        'update_order_status',
-        'update_seller',
-        // Self
-        'view-self',
-        
-        'update_self',
-        //Customer Management
-        'view_sellers',
-        'create_product',
-        'delete_product',
-        'view_customers'
-    ],
+  reader: [
+    // content
+    'list_content',
+    'view_content',
 
-    customer: [
-        // Browsing & purchasing
-        'view_products',
-        'create_order',
-        'view_orders',
-        'make_payment',
-        'view_payments',
+    // self
+    'view_profile',
+    'edit_profile',
 
-        
-
-        // Self
-        'view_self',
-        'update_self',
-        'view_customer'
-    ]
+  ]
 };
 
 module.exports = PERMISSIONS;

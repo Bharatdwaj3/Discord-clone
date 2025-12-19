@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const PORT = process.env.PORT || 5000;
 const SESSION_SECRECT = process.env.SESSION_SECRECT || 'defaultSessionsecret';
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/noblese';
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/social_app';
 
 const JWT_REF_SECRECT = process.env.JWT_REF_SECRECT || 'defaultjwtsecret';
 const JWT_REF_EXPIRES_IN = process.env.JWT_REF_EXPIRES_IN || '1d';
