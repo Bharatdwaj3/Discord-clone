@@ -1,7 +1,28 @@
-import Content from "./auth.route";
-import Creator from "./content.routes";
-import Reader from "./creator.routes";
-import Reader from "./reader.routes";
+import {
+  getCreator,
+  updateCreatorProfile,
+  deleteCreator
+} from ("../controllers/creator.controller");
+
+import {
+  getContents,
+  getContent,
+  createContent,
+  updateContent,
+  deleteContent
+} from ("../controllers/creator.controller");
+
+import {
+  getReaders,
+  getReader,
+  createReader,
+  updateReaderProfile,
+  deleteReader
+} from ("../controllers/reader.controller");
 
 
-export { Creator, Reader, Content };
+export {
+    getCreator, updateCreatorProfile, deleteCreator,
+    getContents, getContent, createContent, updateContent, deleteContent,
+    getReaders, getReader, createReader, updateReaderProfile, deleteReader
+}

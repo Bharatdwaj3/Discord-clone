@@ -5,7 +5,8 @@ const {registerUser,
   loginUser,
   logoutUser,
   profileUser,
-  oauthSuccess}=require('../controllers/user.controller');
+  oauthSuccess
+}=require('../controllers/user.controller');
 const authUser = require('../middleware/auth.middleware');
 
 const passport=require('passport');
