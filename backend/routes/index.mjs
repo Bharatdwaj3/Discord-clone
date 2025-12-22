@@ -2,7 +2,7 @@ import {
   getCreator,
   updateCreatorProfile,
   deleteCreator
-} from ("../controllers/creator.controller");
+} from "../controllers/creator.controller.js";
 
 import {
   getContents,
@@ -10,7 +10,7 @@ import {
   createContent,
   updateContent,
   deleteContent
-} from ("../controllers/creator.controller");
+} from "../controllers/content.controller.js";
 
 import {
   getReaders,
@@ -18,7 +18,7 @@ import {
   createReader,
   updateReaderProfile,
   deleteReader
-} from ("../controllers/reader.controller");
+} from "../controllers/reader.controller.js";
 
 
 export {

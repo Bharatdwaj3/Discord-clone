@@ -6,9 +6,9 @@ const cookieParser=require("cookie-parser");
 const passport=require("passport");
 const MongoStore=require("connect-mongo");
 
-const { dbMiddleware } =require("./middleware/index");
-const {contentRoutes, readerRoutes, writerRoutes, guestRoutes, adminRoutes } =require("./routes/index");
-const {PORT, SESSION_SECRECT, MONGO_URI, connectDB}=require("./config/index");
+const { dbMiddleware } =require("./middleware/index.mjs");
+const {contentRoutes, readerRoutes, writerRoutes, guestRoutes, adminRoutes } =require("./routes/index.mjs");
+const {PORT, SESSION_SECRECT, MONGO_URI, connectDB}=require("./config/index.mjs");
 
 const morganConfig=require("./config/morgan.config");
 

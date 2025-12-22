@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Reader = require("../models/Reader.models");
 const User = require("../models/user.model");
-const cloudinary = require("../services/cloudinary.service");
+const cloudinary = require("../service/cloudinary.service");
 
 const getReaders=async(req, res)=>{
     try{

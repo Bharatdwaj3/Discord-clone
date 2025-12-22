@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Creator = require("../models/creator.models");
 const User = require("../models/user.model");
-const cloudinary = require("../services/cloudinary.service");
+const cloudinary = require("../service/cloudinary.service");
 
 const getCreators=async(req, res)=>{
     try{

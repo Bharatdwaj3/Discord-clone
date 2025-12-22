@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Content = require("../models/Content.models");
 const User = require("../models/user.model");
-const cloudinary = require("../services/cloudinary.service");
+const cloudinary = require("../service/cloudinary.service");
 
 const getContents=async(req, res)=>{
     try{

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const author_Schema=new mongoose.Schema({
+const creator_Schema=new mongoose.Schema({
     
     
     bio:{
@@ -33,4 +33,4 @@ const author_Schema=new mongoose.Schema({
     }
 );
 
-module.exports = author_Schema
+module.exports = creator_Schema

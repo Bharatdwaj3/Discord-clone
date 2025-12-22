@@ -2,7 +2,7 @@ import React from 'react';
 
 const About = () => {
     return (
-        <div>
+        <div className='relative h-[2000px] w-screen bg-sky-100 mt-[70px]'>
             
         </div>
     );

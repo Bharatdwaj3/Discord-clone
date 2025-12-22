@@ -1,6 +1,6 @@
-import authUser from "./auth.middleware";
-import checkPermission from "./permission.middleware";
-import roleMiddleware from "./role.middleware";
+import authUser from "./auth.middleware.js";
+import checkPermission from "./permission.middleware.js";
+import roleMiddleware from "./role.middleware.js";
 import {
   setAccessToken,
   setRefreshToken,
@@ -10,10 +10,10 @@ import {
   destroySession,
   cookieOpts
 }
-    from "./token.middleware";
+    from "./token.middleware.js";
 
-import {sendVerificationEmail, verifyOTP, generateOTP} from "./email.middleware";
-import dbMiddleware from "./db.middleware";
+import {sendVerificationEmail, verifyOTP, generateOTP} from "./email.middleware.js";
+import dbMiddleware from "./db.middleware.js";
 
 export {
     authUser,
