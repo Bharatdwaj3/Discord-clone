@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
-const Content = require("../models/Content.models");
-const User = require("../models/user.model");
-const cloudinary = require("../service/cloudinary.service");
+import mongoose from "mongoose";
+import {userModel as User} from "../models/user.model.js";
+import {contentModel as Content} from "../models/content.models.js";
+import cloudinary from "../service/cloudinary.service.js";
 
 const getContents=async(req, res)=>{
     try{
@@ -133,7 +133,7 @@ const deleteContent=async(req, res)=>{
     }
 };
 
-module.exports = {
+export {
   getContents,
   getContent,
   createContent,

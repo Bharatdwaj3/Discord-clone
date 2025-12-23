@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
-const Reader = require("../models/Reader.models");
-const User = require("../models/user.model");
-const cloudinary = require("../service/cloudinary.service");
+import mongoose from "mongoose";
+import {readerModel as Reader} from "../models/reader.models.js";
+import {userModel as User} from "../models/user.model.js";
+import cloudinary from "../service/cloudinary.service.js";
 
 const getReaders=async(req, res)=>{
     try{
@@ -172,7 +172,7 @@ const deleteReader=async(req, res)=>{
     }
 };
 
-module.exports = {
+export {
   getReaders,
   getReader,
   createReader,

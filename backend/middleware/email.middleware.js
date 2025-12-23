@@ -1,7 +1,7 @@
-const crypto=require('crypto');
-const User =require('../models/user.model');
-const {sendEmail}=require('../utils/email.util');
-const { OTP_EXPIRES_MINUTES } = require('../config/env.config');
+import crypto from "crypto";
+import { userModel as User } from '../models/user.model.js';
+import {sendEmail} from "../utils/email.util.js";
+import { OTP_EXPIRES_MINUTES } from "../config/env.config.js";
 
 const generateOTP=()=>crypto.randomInt(100000, 999999).toString();
 
@@ -52,4 +52,4 @@ const verifyOTP=async(userId, token)=>{
     }
 };
 
-module.exports={sendVerificationEmail, verifyOTP, generateOTP};
+export{sendVerificationEmail, verifyOTP, generateOTP};

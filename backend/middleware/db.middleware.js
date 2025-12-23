@@ -1,5 +1,5 @@
 
-const dbMiddleware = (err, req, res, next) => {
+export const dbMiddleware = (err, req, res, next) => {
   console.error('MONGO ERROR:', err);
   if (res.headersSent) {
     return next(err); 
@@ -36,5 +36,3 @@ const dbMiddleware = (err, req, res, next) => {
     ...(process.env.NODE_ENV !== 'production' && { stack: err.stack })
   });
 };
-
-module.exports = dbMiddleware; 

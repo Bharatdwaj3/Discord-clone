@@ -1,31 +1,27 @@
-require("dotenv").config();
+import 'dotenv/config';
 
-const express=require("express");
-const cors = require("cors");
-const cookieParser=require("cookie-parser");
-const passport=require("passport");
-const MongoStore=require("connect-mongo");
+import express from "express";
+import cors from "cors";
+import cookieParser from "cookie-parser";
+import passport from "passport";
+import MongoStore from "connect-mongo";
+import session from "express-session";
 
-const { dbMiddleware } =require("./middleware/index.mjs");
-const {contentRoutes, readerRoutes, writerRoutes, guestRoutes, adminRoutes } =require("./routes/index.mjs");
-const {PORT, SESSION_SECRECT, MONGO_URI, connectDB}=require("./config/index.mjs");
+import {dbMiddleware} from "./middleware/index.js";
+import {contentRoutes, readerRoutes, writerRoutes, guestRoutes, userRoutes } from "./routes/index.js";
+import {PORT, SESSION_SECRECT, MONGO_URI} from "./config/index.js";
+import {connectDB} from "./config/db.config.js";
 
-const morganConfig=require("./config/morgan.config");
+import morganConfig from "./config/morgan.config.js";
 
 const app=express();
 
-(async()=>{
-    try{
-        await connectDB();
+connectDB();
         console.log("Databasae connected successfully");
 
         app.use(morganConfig);
         app.set("trust proxy", 1);
         app.use(cookieParser());
-        app.use(helmetMiddleware);
-        app.use(sanitizeInput);
-
-        app.use('/api/', rateLimitGlobal);
 
         app.use(express.json({limit: '8kb'}));
         app.use(express.urlencoded({extended: true, limit: '8kb'}));
@@ -33,7 +29,7 @@ const app=express();
             session({
                 secret: SESSION_SECRECT,
                 resave: false,
-                saveUninitlized: false,
+                saveUninitialized: false,
                 store: MongoStore.create({mongoUrl: MONGO_URI}),
                 cookie:{
                     maxAge: 10*24*60*60*1000,
@@ -54,15 +50,11 @@ const app=express();
         app.use("/api/user/writer", writerRoutes);
         app.use("/api/user/guest", guestRoutes);
         app.use("/api/admin", adminRoutes);
-        app.use("/api/user");
+        app.use("/api/user",userRoutes);
 
         app.use(dbMiddleware);
 
         app.listen(PORT,()=>{
             console.log(`Server started at ${PORT}`);
         });
-    }catch(err){
-        console.error("Startup failed: ", err);
-        process.exit(1);
-    }
-})();
+    

@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
-const Creator = require("../models/creator.models");
-const User = require("../models/user.model");
-const cloudinary = require("../service/cloudinary.service");
+import mongoose  from "mongoose";
+import {creatorModel as Creator}  from "../models/creator.models.js";
+import  cloudinary  from "../service/cloudinary.service.js";
+import {userModel as User} from "../models/user.model.js";
 
 const getCreators=async(req, res)=>{
     try{
@@ -18,7 +18,7 @@ const getCreator=async(req, res)=>{
         if(!mongoose.Types.ObjectId.isValid(id)){
             return res.status(400).json({message: "Invalid seller ID format"});
         }
-        const [aggregatedSeller]=await User.aggregate([
+        const [aggregatedSeller]=await Creator.aggregate([
             {
                 $match:{
                     _id: new mongoose.Types.ObjectId(id), 
@@ -29,7 +29,7 @@ const getCreator=async(req, res)=>{
                 $lookup:{
                     from: "creator",
                     localField:"_id",
-                    foreignField: "userId",
+                    foreignField: "CreatorId",
                     as: "profile",
                 },
             },
@@ -77,29 +77,29 @@ const createCreator=async(req, res)=>{
 
 const updateCreatorProfile=async(req, res)=>{
     try{
-        const userId=req.user.id;
-        const user =   await User.findById(userId);
+        const CreatorId=req.Creator.id;
+        const Creator =   await Creator.findById(CreatorId);
         
-        if(!user) return res.status(404).json({message: "User not found!!"});
-        if(user.accountType !== "creator" && user.accountType !== "admin"){
+        if(!Creator) return res.status(404).json({message: "Creator not found!!"});
+        if(Creator.accountType !== "creator" && Creator.accountType !== "admin"){
             return res.status(403).json({message: "You don't have permissions to edit this"});
         }
         
-        const profileData={...req.body, userId};
+        const profileData={...req.body, CreatorId};
         let oldCreator=null;
 
         if(req.file){
             profileData.imageUrl=req.file.path;
             profileData.cloudinaryId=req.file.filename;
 
-            oldCreator=await Creator.findOne({userId});
+            oldCreator=await Creator.findOne({CreatorId});
             if(oldCreator?.cloudinaryId){
                 await cloudinary.uploader.destroy(oldCreator.cloudinaryId);
             }
         }
 
         const updated=await Creator.findOneAndUpdate(
-            {userId},
+            {CreatorId},
             {$set: profileData},
             {
                 new: true,
@@ -123,9 +123,9 @@ const updateCreator=async(req, res)=>{
         const targetCreator=await Creator.findById(id);
         if(!targetCreator)  return req.status(404).json({message: "Creator not found!"});
         
-        const currentUser=await User.findById(req.user.id);
-        const isCreator=targetCreator.userId.toString()===req.user.id;
-        const isAdmin=currentUser?.accountType==="admin";
+        const currentCreator=await Creator.findById(req.Creator.id);
+        const isCreator=targetCreator.CreatorId.toString()===req.Creator.id;
+        const isAdmin=currentCreator?.accountType==="admin";
         
         if(!isCreator && !isAdmin){
             return res.status(403).json({message:"Unathorized to update this creator!"});
@@ -172,7 +172,7 @@ const deleteCreator=async(req, res)=>{
     }
 };
 
-module.exports = {
+export  {
   getCreators,
   getCreator,
   createCreator,

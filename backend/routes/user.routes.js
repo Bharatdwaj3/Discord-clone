@@ -1,16 +1,16 @@
-const express=require('express');
-const {registerUser,
+import express from 'express';
+import {registerUser,
   refreshToken,
   verifyEmail,
   loginUser,
   logoutUser,
   profileUser,
   oauthSuccess
-}=require('../controllers/user.controller');
-const authUser = require('../middleware/auth.middleware');
+}from '../controllers/user.controller.js';
+import authUser from '../middleware/auth.middleware.js';
 
-const passport=require('passport');
-const router=express.Router();
+import passport from 'passport';
+import router from express.Router();
 
 
 router.post('/register', registerUser);
@@ -40,4 +40,4 @@ router.post('/verify-email', verifyEmail);
 
 
 
-module.exports = router;
+export default router;

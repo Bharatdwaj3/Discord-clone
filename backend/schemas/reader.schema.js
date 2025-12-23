@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+import  mongoose from "mongoose";
 
-const reader_Schema=new mongoose.Schema({
+export const reader_Schema=new mongoose.Schema({
     
     
     bio:{
@@ -35,5 +35,3 @@ const reader_Schema=new mongoose.Schema({
     timestamps: true
     }
 );
-
-module.exports = reader_Schema

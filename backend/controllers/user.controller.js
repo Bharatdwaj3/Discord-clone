@@ -1,10 +1,10 @@
-const bycrypt = require('bcryptjs');
-const jwt=require('jsonwebtoken');
-const User=require('../models/user.model');
-const {
+import bycrypt  from "bcryptjs";
+import jwt from "jsonwebtoken";
+import {userModel as User} from "../models/user.model.js";
+import {
   setAccessToken, setRefreshToken, clearAuthCookies, revokeRefreshToken, refreshTokenHandler, destroySession
-}=require('../middleware/token.middleware');
-const { sendVerificationEmail } = require('../middleware/email.middleware');
+} from "../middleware/token.middleware.js";
+import { sendVerificationEmail } from "../middleware/email.middleware.js";
 
 const registerUser=async(req, res)=>{
   try{
@@ -270,9 +270,8 @@ const verifyOTP=async(userId, token)=>{
 
 
 
-module.exports={
+export{
   registerUser,
-  oauthSuccess,
   refreshToken,
   verifyEmail,
   loginUser,

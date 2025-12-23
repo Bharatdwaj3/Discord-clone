@@ -1,6 +1,6 @@
-const PERMISSIONS=require('../config/permissions.config');
+import  PERMISSIONS from "../config/permissions.config.js";
 
-const checkPermission=(permission)=>{
+export const checkPermission=(permission)=>{
     return (req, res, next)=>{
         const userRole = req.role || req.user?.accountType || 'guest';
         const allowed = PERMISSIONS[userRole] || [];
@@ -10,5 +10,3 @@ const checkPermission=(permission)=>{
         next();
     };
 };
-
-module.exports=checkPermission;

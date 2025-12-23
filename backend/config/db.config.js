@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
-const { MONGO_URI } = require('./env.config');
+import mongoose from 'mongoose';
+import { MONGO_URI } from './env.config.js';
 
-const connectDB = async () => {
+export const connectDB = async () => {
   await mongoose.connect(MONGO_URI, {
     bufferTimeoutMS: 30000,
     serverSelectionTimeoutMS: 30000,
@@ -11,4 +11,3 @@ const connectDB = async () => {
   });
 };
 
-module.exports = connectDB;

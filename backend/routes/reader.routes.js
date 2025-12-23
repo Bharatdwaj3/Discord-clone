@@ -1,17 +1,17 @@
-const express=require('express');
-const upload=require('../service/multer.service');
-const router=express.Router();
-const {
+import express from "express";
+import upload from "../service/multer.service.js";
+import router from express.Router();
+import {
   getReaders,
   getReader,
   createReader,
   updateReaderProfile,
   deleteReader
-} =require("../controllers/reader.controller");
+} from "../controllers/reader.controller.js";
 
-const checkPermission=require("../middleware/permission.middlewareS");
-const roleMiddleware=require("../middleware/role.middleware");
-const authUser=require("../middleware/auth.middleware");
+import checkPermission from "../middleware/permission.middleware.js";
+import roleMiddleware from "../middleware/role.middleware.js";
+import authUser from "../middleware/auth.middleware.js";
 
 
 router.get(

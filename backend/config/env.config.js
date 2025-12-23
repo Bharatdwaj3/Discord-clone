@@ -1,4 +1,4 @@
-require('dotenv').config();
+import 'dotenv/config';
 
 const PORT = process.env.PORT || 5000;
 const SESSION_SECRECT = process.env.SESSION_SECRECT || 'defaultSessionsecret';
@@ -22,11 +22,18 @@ const GOOGLE_CALLBACK_URI=process.env.Google_CALLBACK_URI || 'some uri';
 const EMAIL_FROM=process.env.EMAIL_FROM || 'no-reply@yourapp.com';
 const  OTP_EXPIRES_MINUTES=15;
 
-module.exports = {
+const SMTP_HOST=process.env.SMTP_HOST ||  'smtp.gmail.com';
+const SMTP_PORT=process.env.SMTP_PORT || 345
+const SMTP_SECURE=process.env.SMTP_SECURE || true
+const SMTP_USER=process.env.SMTP_USER || 'some smtp user'
+const SMTP_PASS=process.env.SMTP_PASS  || 'some smtp secret'
+
+export {
     PORT, MONGO_URI, SESSION_SECRECT, 
     JWT_ACC_EXPIRES_IN, JWT_ACC_SECRECT, JWT_REF_EXPIRES_IN, JWT_REF_SECRECT,
     GOOGLE_CALLBACK_URI, GOOGLE_CLIENT_ID,  GOOGLE_CLIENT_SECRET,
     DISCORD_CALLBACK_URI, DISCORD_CLIENT_ID,  DISCORD_CLIENT_SECRET,
     EMAIL_FROM,
     OTP_EXPIRES_MINUTES,
+    SMTP_HOST, SMTP_PORT, SMTP_SECURE,SMTP_USER, SMTP_PASS, 
 };

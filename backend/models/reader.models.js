@@ -1,6 +1,5 @@
 const express = require('express')
 const mongoose = require('mongoose');
-const readerSchema = require('../schemas/reader.schema');
+const {reader_Schema} = require('../schemas/reader.schema');
 
-const readerModel = mongoose.model('readerModel', readerSchema,'reader');
-module.exports=readerModel;
+export const readerModel = mongoose.model('readerModel', reader_Schema,'reader');

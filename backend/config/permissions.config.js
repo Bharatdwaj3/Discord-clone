@@ -41,4 +41,4 @@ const PERMISSIONS = {
   ]
 };
 
-module.exports = PERMISSIONS;
+export default PERMISSIONS;

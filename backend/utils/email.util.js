@@ -1,5 +1,5 @@
-const nodemailer=require("nodemailer");
-const {SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, EMAIL_FROM}=require('../config/env.config');
+import nodemailer from "nodemailer";
+import {SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, EMAIL_FROM} from "../config/env.config.js";
 
 const transporter=nodemailer.createTransport({
     host: SMTP_HOST,
@@ -19,4 +19,4 @@ const sendEmail=async(to, subject, html)=>{
   return await transporter.sendMail(mailOptions);
 };
 
-module.exports={sendEmail};
+export {sendEmail};

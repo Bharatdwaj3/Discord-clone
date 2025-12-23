@@ -1,5 +1,5 @@
-const mongoose=require('mongoose');
-const user_Schema=new mongoose.Schema({
+import mongoose from "mongoose";
+export const user_Schema=new mongoose.Schema({
     userName: {
         type:String,
         required:[true, 'User Name is required'],
@@ -50,5 +50,3 @@ const user_Schema=new mongoose.Schema({
     toJSON: { virtuals: true, transform: (doc, ret) => { delete ret.password; } },
     toObject: { virtuals: true, transform: (doc, ret) => { delete ret.password; } }
 });
-
-module.exports=user_Schema;

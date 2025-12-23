@@ -1,8 +1,8 @@
-const jwt = require("jsonwebtoken");
-const User = require('../models/user.model.js');
-const { JWT_ACC_SECRECT } = require("../config/env.config");
+import jwt from "jsonwebtoken";
+import { userModel as User } from '../models/user.model.js';
+import { JWT_ACC_SECRECT } from "../config/env.config.js";
 
-const authUser = async (req, res, next) => {
+export const authUser = async (req, res, next) => {
   let payload = null;
   let authMethod = null;
   const token = req.cookies.accessToken;
@@ -41,7 +41,3 @@ return res.status(401).json({
   code: "Auth_required",
 });
 };
-
-
-
-module.exports = authUser;

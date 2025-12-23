@@ -1,6 +1,5 @@
 const express = require('express')
 const mongoose = require('mongoose');
-const creatorSchema = require('../schemas/creator.schema');
+const {creator_Schema} = require('../schemas/creator.schema');
 
-const creatorModel = mongoose.model('creatorModel', creatorSchema,'creator');
-module.exports=creatorModel;
+export const creatorModel = mongoose.model('creatorModel', creator_Schema,'creator');

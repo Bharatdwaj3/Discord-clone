@@ -1,5 +1,5 @@
 import express from "express";
-const router = express.Router();
+import router from  express.Router();
 
 import {
   getChat,
