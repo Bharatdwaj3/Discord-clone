@@ -1,5 +1,5 @@
-const express = require('express')
-const mongoose = require('mongoose');
-const {contentSchema} = require('../schemas/content.schema');
+import express from 'express';
+import mongoose from 'mongoose';
+import {content_Schema} from '../schemas/content.schema.js';
 
-export const contentModel = mongoose.model('contentModel', contentSchema,'content');
+export const contentModel = mongoose.model('contentModel', content_Schema,'content');

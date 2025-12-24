@@ -8,7 +8,7 @@ import MongoStore from "connect-mongo";
 import session from "express-session";
 
 import {dbMiddleware} from "./middleware/index.js";
-import {contentRoutes, readerRoutes, writerRoutes, guestRoutes, userRoutes } from "./routes/index.js";
+import {adminRoutes, userRoutes, readerRoutes, contentRoutes, creatorRoutes, chatRoutes} from "./routes/index.js";
 import {PORT, SESSION_SECRECT, MONGO_URI} from "./config/index.js";
 import {connectDB} from "./config/db.config.js";
 
@@ -45,12 +45,17 @@ connectDB();
 
         app.get('/',(req, res)=> res.send("Server ready"));
 
-        app.use("/api/content", contentRoutes);
-        app.use("/api/user/reader", readerRoutes);
-        app.use("/api/user/writer", writerRoutes);
-        app.use("/api/user/guest", guestRoutes);
         app.use("/api/admin", adminRoutes);
         app.use("/api/user",userRoutes);
+        
+        app.use("/api/user/reader", readerRoutes);
+        app.use("/api/content", contentRoutes);
+        app.use("/api/user/creator", creatorRoutes);
+        
+        app.use("/api/user/chat", chatRoutes);
+
+        
+        
 
         app.use(dbMiddleware);
 

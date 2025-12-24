@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const content_Schema=new mongoose.Schema({
+export const content_Schema=new mongoose.Schema({
     
     title: {
         type: String,
@@ -34,5 +34,3 @@ const content_Schema=new mongoose.Schema({
     timestamps: true
     }
 );
-
-module.exports = content_Schema

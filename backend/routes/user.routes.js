@@ -8,7 +8,9 @@ import {registerUser,
   profileUser,
   oauthSuccess
 }from '../controllers/user.controller.js';
-import authUser from '../middleware/auth.middleware.js';
+import {checkPermission} from "../middleware/permission.middleware.js";
+import {roleMiddleware} from "../middleware/role.middleware.js";
+import {authUser} from "../middleware/auth.middleware.js";
 
 import passport from 'passport';
 

@@ -1,5 +1,5 @@
-const express = require('express')
-const mongoose = require('mongoose');
-const {reader_Schema} = require('../schemas/reader.schema');
+import express from 'express';
+import mongoose from 'mongoose';
+import {reader_Schema} from '../schemas/reader.schema.js';
 
 export const readerModel = mongoose.model('readerModel', reader_Schema,'reader');

@@ -1,5 +1,5 @@
-const express = require('express')
-const mongoose = require('mongoose');
-const {creator_Schema} = require('../schemas/creator.schema');
+import express from 'express';
+import mongoose from 'mongoose';
+import {creator_Schema} from '../schemas/creator.schema.js';
 
 export const creatorModel = mongoose.model('creatorModel', creator_Schema,'creator');

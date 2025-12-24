@@ -1,5 +1,5 @@
 import { StatusCodes } from "http-status-codes";
-import {chatModel }  from "../models/chat.models";
+import {chatModel as Chat}  from "../models/chat.models.js";
 import {userModel as User} from "../models/user.model.js";
 
 import {
