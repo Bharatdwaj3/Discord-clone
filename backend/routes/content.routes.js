@@ -57,3 +57,5 @@ router.get(
     checkPermission('deactivate_account'),
     deleteContent
 );
+
+export default router;

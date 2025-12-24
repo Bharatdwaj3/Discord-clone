@@ -1,5 +1,5 @@
 import express from "express";
-import router from  express.Router();
+const router = express.Router();  
 
 import {
   getChat,
@@ -8,7 +8,7 @@ import {
   renameGroup,
   removeFromGroup,
   addUserToGroup,
-} from "../controllers/chat.js";
+} from "../controllers/chat.controller.js";
 
 router.route("/").post(getChat).get(getChats);
 router.route("/createGroup").post(createGroup);

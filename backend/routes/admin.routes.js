@@ -1,6 +1,6 @@
 import express from "express";
+const router = express.Router();  
 import upload from "../service/multer.service.js";
-import router from express.Router();
 import {
     getContents, getContent, createContent, updateContent, deleteContent,
     getReaders, getReader, createReader, updateReaderProfile, updateReader, deleteReader,
@@ -28,3 +28,5 @@ router.get('/profile/:id',roleMiddleware(['admin','reader']),checkPermission('vi
 router.get('/profile/:id',roleMiddleware(['admin','reader']),checkPermission('create_reader'),createReader);
 router.get('/profile/:id',authUser,roleMiddleware(['admin','reader']),checkPermission('update_profile'),updateReaderProfile);
 router.get('/profile/:id',authUser,roleMiddleware(['admin','reader']),checkPermission('deactivate_account'),deleteReader);
+
+export default router;

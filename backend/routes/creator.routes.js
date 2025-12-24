@@ -1,6 +1,7 @@
 import express from "express";
+const router = express.Router();  
 import upload from "../service/multer.service.js";
-import router from express.Router();
+
 
 import {
   getCreator,
@@ -37,3 +38,5 @@ router.get(
     checkPermission('deactivate_account'),
     deleteCreator
 );
+
+export default router;

@@ -4,7 +4,7 @@ import {
   createContent,
   updateContent,
   deleteContent,
-} from "./content.controller";
+} from "./content.controller.js";
 
 import {
   getReaders,
@@ -13,7 +13,7 @@ import {
   updateReaderProfile,
   updateReader,
   deleteReader,
-} from "./reader.controller";
+} from "./reader.controller.js";
 
 import {
   getCreators,
@@ -26,19 +26,18 @@ import {
 
 import { 
     registerUser,
-    oauthSuccess,
     refreshToken,
     verifyEmail,
     loginUser,
     logoutUser,
     profileUser,
     oauthSuccess
-} from "./auth.controller.js"
+} from "./user.controller.js"
 
 
 export {
     getContents, getContent, createContent, updateContent, deleteContent,
     getReaders, getReader, createReader, updateReaderProfile, updateReader, deleteReader,
     getCreators, getCreator, createCreator, updateCreatorProfile, updateCreator, deleteCreator,
-    registerUser, oauthSuccess, refreshToken, verifyEmail, loginUser, logoutUser, profileUser, oauthSuccess
+    registerUser, oauthSuccess, refreshToken, verifyEmail, loginUser, logoutUser, profileUser, 
 }

@@ -1,6 +1,6 @@
 import { StatusCodes } from "http-status-codes";
-import Chat from "../models/chat.js";
-import User from "../models/user.js";
+import {chatModel }  from "../models/chat.models";
+import {userModel as User} from "../models/user.model.js";
 
 import {
   BadRequestError,

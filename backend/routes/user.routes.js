@@ -1,4 +1,5 @@
-import express from 'express';
+import express from "express";
+const router = express.Router();  
 import {registerUser,
   refreshToken,
   verifyEmail,
@@ -10,7 +11,6 @@ import {registerUser,
 import authUser from '../middleware/auth.middleware.js';
 
 import passport from 'passport';
-import router from express.Router();
 
 
 router.post('/register', registerUser);
