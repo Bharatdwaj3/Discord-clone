@@ -1,4 +1,4 @@
-name: social_management_app
+name: my_app
 
 services: 
   api:
