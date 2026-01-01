@@ -1,5 +1,7 @@
-import Content from "./content/content";
-import Creator from "./creator/creator";
-import Reader from "./reader/reader";
+import Content from "./content/Content";
+import Creator from "./creator/Creator";
+import Reader from "./reader/Reader";
+import Admin from "./admin/Admin";
+import User from "./user/User";
 
-export { Creator, Reader, Content };
+export {Admin, User, Creator, Reader, Content };
